@@ -1,6 +1,7 @@
 //! 더미 데이터 - 구조 분할 이용해서 데이터 호출
 //! 구조 분할된 객체 데이터를 각각 렌더링
 //! 장르의 경우 객체 안의 배열이기 때문에, 배열을 map으로 반복렌더링
+//! 실제 현업에서는 filter 사용하는 것이 용이(파일이 여러개이기 때문)
 
 import React from 'react';
 import MovieDetailData from '../const/data/MovieDetailData.json';
