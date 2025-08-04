@@ -1,10 +1,8 @@
 //! Filter 사용해서 Movie 상세보기
-
-import React from 'react';
 import MovieDetailData from '../const/data/MovieDetailData.json';
 import { useParams } from 'react-router-dom';
 
-const MovieDetail = () => {
+const Detail_filter = () => {
   // alert(JSON.stringify(MovieDetailData));
   // console.log(MovieDetailData['id']);
 
@@ -34,4 +32,4 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default Detail_filter;
