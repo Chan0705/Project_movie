@@ -4,6 +4,8 @@ import movieListData from '../const/data/movieListData.json';
 // import Modal from './modal.jsx';
 import MovieDetail from './MovieDetail.jsx';
 import { Link } from 'react-router-dom';
+//* 경로명 ./ ~ > 해당폴더 내에서 사용
+//* ../ ~ > 해당 폴더 밖으로 나가서 경로를 뽑을 때 (상위폴더 등)
 
 const MovieCard = () => {
   // const [isOpen, setIsOpen] = useState(false);
