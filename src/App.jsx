@@ -1,10 +1,14 @@
 import MovieCard from './components/MovieCard';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 // import MovieDetail from './components/MovieDetail';
 import Detail_filter from './components/Detail_filter';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
+import NavBar from './components/NavBar';
+import SignUp from './components/SignUp';
+import Footer from './components/Footer';
+import LogIn from './components/LogIn';
 
 function App() {
   //* movieListData.results.map((item) >> .json파일은 현재 객체, 그 안에서 results만 배열 데이터.
@@ -19,7 +23,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=e9a6ff882a2ced4eb377ec80665094dc'
+        'https://api.themoviedb.org/3/movie/popular?language=ko&api_key=e9a6ff882a2ced4eb377ec80665094dc'
       )
       .then((response) => {
         setMovieList(response.data.results); //* 상태에 영화 리스트 저장
@@ -31,18 +35,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
-        <header className="flex justify-start bg-indigo-900 text-white font-bold items-center h-20">
-          <p className="m-1 p-1 text-lg">GIGABOX</p>
-        </header>
-        <Routes>
-          <Route path="/" element={<MovieCard movieList={movieList} />} />
-          {/* <Route path="/MovieDetail/" element={<MovieDetail />} /> */}
-          <Route path="/detail/:id" element={<Detail_filter />} />
-        </Routes>
-        <footer className="flex justify-start bg-indigo-900  text-white font-bold items-center h-10">
-          <p className="m-1 p-1 text-lg">㉿ GIGABOX</p>
-        </footer>
+      <div className="min-h-screen bg-sky-50 flex flex-col">
+        <NavBar />
+        {/* main으로 Routes를 감싸도 문제 발생x */}
+        {/* 전체적인 style 지정에 용이함 */}
+        <main className="flex-grow flex justify-center items-center">
+          <Routes>
+            <Route path="/" element={<MovieCard movieList={movieList} />} />
+            {/* <Route path="/MovieDetail/" element={<MovieDetail />} /> */}
+            <Route path="/detail/:id" element={<Detail_filter />} />
+            <Route path="/signup/" element={<SignUp />} />
+            <Route path="/login/" element={<LogIn />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );
