@@ -17,13 +17,13 @@ function App() {
   //* header / footer 유지 시, outlet을 이용하는 것이 좀 더 보편적인 방법
 
   const [movieList, setMovieList] = useState([]); //* useState 이용해서 API 변화 위함
-
+  const API_KEY = import.meta.env.VITE_API_KEY;
   //* 첫 접속 시, 렌더링 되는것을 보여주기 위해 useEffect 사용
   //* 부모 컴포넌트에서 관리하는 것이 편함
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/popular?language=ko&api_key=e9a6ff882a2ced4eb377ec80665094dc'
+        `https://api.themoviedb.org/3/movie/popular?language=ko&api_key=${API_KEY}`
       )
       .then((response) => {
         setMovieList(response.data.results); //* 상태에 영화 리스트 저장

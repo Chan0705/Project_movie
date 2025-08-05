@@ -9,6 +9,7 @@ const Detail = () => {
   // console.log(MovieDetailData['id']);
   const [movieDetail, setMovieDetail] = useState([]);
   const { id } = useParams(); //* useParams를 통해 ID 불러오기
+  const API_KEY = import.meta.env.VITE_API_KEY;
   // console.log(JSON); //* JSON 로딩 확인용
   // const User = () => {
   //   const params = useParams();
@@ -18,7 +19,7 @@ const Detail = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}?language=ko&api_key=e9a6ff882a2ced4eb377ec80665094dc`
+        `https://api.themoviedb.org/3/movie/${id}?language=ko&api_key=${API_KEY}`
       )
       //* movie/movie_id >>> movie_id는 id 숫자가 들어갈 자리이기 때문에 ${}로 useParams에서 가져온 id를 지정해야됨
       //* ${}를 써야되기 때문에 ''에서 ``으로 변경 필수// 변경안하면 에러 발생
