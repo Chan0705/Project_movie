@@ -9,12 +9,11 @@ import NavBar from './components/NavBar';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import LogIn from './components/LogIn';
+import Layout from './components/Outlet';
 
 function App() {
   //* movieListData.results.map((item) >> .json파일은 현재 객체, 그 안에서 results만 배열 데이터.
   //* 현재 상태에서 .results.map을 통해 배열만 뽑아내서 가능, 단 추후 page 분할 등에서 관리를 통해 useState가 편함
-
-  //* header / footer 유지 시, outlet을 이용하는 것이 좀 더 보편적인 방법
 
   const [movieList, setMovieList] = useState([]); //* useState 이용해서 API 변화 위함
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -31,25 +30,45 @@ function App() {
       .catch((error) => {
         console.error('error', error); //* 호출 에러 표출
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //   return (
+  //     <BrowserRouter>
+  //       <div className="min-h-screen bg-sky-50 flex flex-col">
+  //         <NavBar />
+  //         {/* main으로 Routes를 감싸도 문제 발생x */}
+  //         {/* 전체적인 style 지정에 용이함 */}
+  //         <main className="flex-grow flex justify-center items-center">
+  //           <Routes>
+  //
+  //             <Route path="/" element={<MovieCard movieList={movieList} />} />
+  //             {/* <Route path="/MovieDetail/" element={<MovieDetail />} /> */}
+  //             <Route path="/detail/:id" element={<Detail_filter />} />
+  //             <Route path="/signup/" element={<SignUp />} />
+  //             <Route path="/login/" element={<LogIn />} />
+  //           </Routes>
+  //         </main>
+  //         <Footer />
+  //       </div>
+  //     </BrowserRouter>
+  //   );
+  // }
+
+  //* header / footer 유지 시, outlet을 이용하는 것이 좀 더 보편적인 방법
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-sky-50 flex flex-col">
-        <NavBar />
-        {/* main으로 Routes를 감싸도 문제 발생x */}
-        {/* 전체적인 style 지정에 용이함 */}
-        <main className="flex-grow flex justify-center items-center">
-          <Routes>
-            <Route path="/" element={<MovieCard movieList={movieList} />} />
-            {/* <Route path="/MovieDetail/" element={<MovieDetail />} /> */}
-            <Route path="/detail/:id" element={<Detail_filter />} />
-            <Route path="/signup/" element={<SignUp />} />
-            <Route path="/login/" element={<LogIn />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      {/* 기존 main태그는 Layout = outlet 컴포넌트로 옮겨감 */}
+      {/* App.jsx와 Outlet.jsx에 main태그 중복 시, 렌더링 오류로 UI 렌더링 불가 */}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* Route index : 기본페이지를 어느걸로 설정할지 */}
+          <Route index element={<MovieCard movieList={movieList} />} />
+          <Route path="detail/:id" element={<Detail_filter />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<LogIn />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

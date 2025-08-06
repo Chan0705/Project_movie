@@ -54,7 +54,9 @@ const MovieCard = ({ movieList }) => {
       </div>
 
       <div className="flex justify-center items-center">
-        <div className="rounded-2xl bg-cyan-200 grid grid-cols-4 m-1 p-1 gap-2">
+        {/* sm: small-screen / md: middle-screen / lg: large-screen */}
+
+        <div className="rounded-2xl bg-cyan-200 grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-4 m-1 p-1 gap-2">
           {/* api호출하였기 때문에 JSON대신 불러온 api 호출명으로 map 변경 */}
           {movieList.map((item) => (
             <div key={item.id} className="flex flex-col m-1 p-1">
@@ -72,18 +74,18 @@ const MovieCard = ({ movieList }) => {
                 </p>
               </div>
 
-              <div className="border rounded bg-white font-bold justify-between flex gap-2 items-center p-2 mb-2">
-                <p className="text-start whitespace-nowrap">
+              <div className="border rounded overflow-hidden bg-white min-w-[50px] font-bold justify-between flex flex-wrap items-center p-2 mb-2">
+                <p className="text-start  min-w-[50px]">
                   개봉일: {item.release_date}
                 </p>
-                <div className="flex gap-2 justify-end w-full">
+                <div className="flex flex-wrap gap-2 justify-end w-full">
                   {/* <Link to="/MovieDetail/"> */}
                   <Link to={`/detail/${item.id}`}>
-                    <button className="cursor-pointer min-w-[80px] max-w-[120px] sm:w-auto bg-amber-50 border rounded">
+                    <button className="cursor-pointer min-w-[50px] max-w-[120px] sm:w-auto bg-amber-50 border rounded">
                       상세보기
                     </button>
                   </Link>
-                  <button className="cursor-pointer min-w-[80px] max-w-[120px] sm:w-auto bg-amber-50 border rounded">
+                  <button className="cursor-pointer min-w-[50px] max-w-[120px] sm:w-auto bg-amber-50 border rounded">
                     예매하기
                   </button>
                 </div>

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div>
-      <header className="flex gap-5 bg-indigo-900 text-white font-bold items-center h-20">
-        <p className="m-1 p-1 text-lg">GIGABOX</p>
+      <header className="fixed top-0 w-full flex gap-2 bg-indigo-900 text-white font-bold items-center h-20">
+        <p className="m-2 p-2 text-lg">GIGABOX</p>
         <Link to={'/'}>
           <button className="m-1 whitespace-nowrap cursor-pointer rounded border p-1">
             🏠 홈으로
