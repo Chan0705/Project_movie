@@ -46,16 +46,8 @@ const MovieCard = ({ movieList }) => {
         </p>
       </div>
 
-      <div className="m-1 p-1 flex gap-5">
-        <input
-          className="m-1 p-1 rounded border max-w-[200px] w-full"
-          placeholder="검색"
-        ></input>
-      </div>
-
       <div className="flex justify-center items-center">
         {/* sm: small-screen / md: middle-screen / lg: large-screen */}
-
         <div className="rounded-2xl bg-cyan-200 grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-4 m-1 p-1 gap-2">
           {/* api호출하였기 때문에 JSON대신 불러온 api 호출명으로 map 변경 */}
           {movieList.map((item) => (
@@ -73,7 +65,7 @@ const MovieCard = ({ movieList }) => {
                   🎥 {item.title}
                 </p>
               </div>
-
+              {/* movie card_title & detail */}
               <div className="border rounded overflow-hidden bg-white min-w-[50px] font-bold justify-between flex flex-wrap items-center p-2 mb-2">
                 <p className="text-start  min-w-[50px]">
                   개봉일: {item.release_date}
@@ -90,10 +82,12 @@ const MovieCard = ({ movieList }) => {
                   </button>
                 </div>
               </div>
+              {/* movie card */}
             </div>
           ))}
         </div>
       </div>
+      {/* 전체div 구분 */}
     </div>
   );
 };
