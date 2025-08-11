@@ -48,7 +48,7 @@ const MovieCard = ({ movieList }) => {
 
       <div className="flex justify-center items-center">
         {/* sm: small-screen / md: middle-screen / lg: large-screen */}
-        <div className="rounded-2xl bg-cyan-200 grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-4 m-1 p-1 gap-2">
+        <div className="rounded-2xl bg-cyan-200 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-1 p-1 gap-2">
           {/* api호출하였기 때문에 JSON대신 불러온 api 호출명으로 map 변경 */}
           {movieList.map((item) => (
             <div key={item.id} className="flex flex-col m-1 p-1">

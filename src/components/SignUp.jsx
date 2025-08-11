@@ -80,7 +80,10 @@ const SignUp = () => {
       {/* 입력칸 */}
       {/* 버튼 */}
       <div className="flex m-2 justify-center gap-5">
-        <button className="border rounded font-bold w-full bg-emerald-50 p-2 mt-10 cursor-pointer">
+        <button
+          type="submit"
+          className="border rounded font-bold w-full bg-emerald-50 p-2 mt-10 cursor-pointer"
+        >
           회원가입
         </button>
       </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const HamburgerButton = ({ isOpen, onClose }) => {
   return (
     isOpen && (
-      <div className="bg-emerald-600 flex rounded absolute shadow-current w-[200px] h-[500px] top-20 items-center right-0">
+      <div className="bg-emerald-600 justify-center flex rounded absolute shadow-current w-[200px] h-[500px] top-20 items-center right-0">
         <div>
           <div className="flex justify-end flex-col items-end gap-2 w-full text-black">
             <Link to={'/login'}>

@@ -10,6 +10,8 @@ import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import LogIn from './components/LogIn';
 import Layout from './components/Outlet';
+import Search from './components/search';
+import SearchResult from './components/SearchResult';
 
 function App() {
   //* movieListData.results.map((item) >> .json파일은 현재 객체, 그 안에서 results만 배열 데이터.
@@ -33,28 +35,6 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //   return (
-  //     <BrowserRouter>
-  //       <div className="min-h-screen bg-sky-50 flex flex-col">
-  //         <NavBar />
-  //         {/* main으로 Routes를 감싸도 문제 발생x */}
-  //         {/* 전체적인 style 지정에 용이함 */}
-  //         <main className="flex-grow flex justify-center items-center">
-  //           <Routes>
-  //
-  //             <Route path="/" element={<MovieCard movieList={movieList} />} />
-  //             {/* <Route path="/MovieDetail/" element={<MovieDetail />} /> */}
-  //             <Route path="/detail/:id" element={<Detail_filter />} />
-  //             <Route path="/signup/" element={<SignUp />} />
-  //             <Route path="/login/" element={<LogIn />} />
-  //           </Routes>
-  //         </main>
-  //         <Footer />
-  //       </div>
-  //     </BrowserRouter>
-  //   );
-  // }
-
   //* header / footer 유지 시, outlet을 이용하는 것이 좀 더 보편적인 방법
   return (
     <BrowserRouter>
@@ -67,6 +47,7 @@ function App() {
           <Route path="detail/:id" element={<Detail_filter />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<LogIn />} />
+          <Route path="search" element={<SearchResult />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
