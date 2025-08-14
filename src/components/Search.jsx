@@ -26,7 +26,7 @@ const Search = () => {
       .catch((error) => {
         console.error('error', error);
       });
-  }, []);
+  }, ['searchTerm']);
 
   //* 사용자가 검색어를 입력했을 때 검색 결과 페이지로 이동
   //? searchTerm: 사용자가 입력한 검색어. 예: "apple" 또는 "React tutorial"
