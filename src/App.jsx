@@ -11,7 +11,9 @@ import Footer from './components/Footer';
 import LogIn from './components/LogIn';
 import Layout from './components/Outlet';
 import Search from './components/search';
+import Mypage from './components/Mypage';
 import SearchResult from './components/SearchResult';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   //* movieListData.results.map((item) >> .json파일은 현재 객체, 그 안에서 results만 배열 데이터.
@@ -48,6 +50,14 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<LogIn />} />
           <Route path="search" element={<SearchResult />}></Route>
+          <Route
+            path="/mypage"
+            element={
+              <PrivateRoute>
+                <Mypage />
+              </PrivateRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
