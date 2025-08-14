@@ -29,7 +29,7 @@ const NavBar = () => {
           <button onClick={handleOpen} className="cursor-pointer m-1 p-1">
             <img
               className="object-contain"
-              src="public\icons8.png"
+              src="public/icons8.png"
               alt="햄부기"
             />
           </button>
