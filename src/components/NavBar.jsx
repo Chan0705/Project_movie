@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HamburgerButton from './Hamburger_Button';
-import Search from './search';
+import Search from './Search';
 
 const NavBar = () => {
   //* 햄부기 바
