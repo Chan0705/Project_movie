@@ -27,11 +27,7 @@ const NavBar = () => {
         {/* modal 햄버거 */}
         <div className="flex font-bold justify-end items-center flex-1">
           <button onClick={handleOpen} className="cursor-pointer m-1 p-1">
-            <img
-              className="object-contain"
-              src="public/icons8.png"
-              alt="햄부기"
-            />
+            <img className="object-contain" src="/icons8.png" alt="햄부기" />
           </button>
           <HamburgerButton isOpen={isOpen} onClose={handleOpen} />
         </div>
